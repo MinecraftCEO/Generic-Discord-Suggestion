@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Discord Suggestion Generator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Discord Suggestion Generator</h1>
+    <button id="load-example-btn" style="max-width: 300px;">Load Generic Example</button>
+    
+    <div class="container">
+        <div class="input-panel">
+            <h2>Input</h2>
+            
+            <label for="main-title">Main Title</label>
+            <input type="text" id="main-title" placeholder="e.g., General Game Improvements">
+
+            <label for="subtitle">Subtitle / Introduction</label>
+            <input type="text" id="subtitle" placeholder="e.g., Ideas for gameplay and QoL...">
+
+            <div id="suggestions-container">
+            </div>
+            
+            <button id="add-suggestion-btn">Add New Suggestion</button>
+        </div>
+
+        <div class="output-panel">
+            <h2>Preview (Discord-Look)</h2>
+            <div id="preview"></div>
+
+            <h2>Markdown to Copy</h2>
+            <textarea id="markdown-output" readonly placeholder="The final text for copying will appear here..."></textarea>
+            <button id="copy-btn">Copy Markdown</button>
+        </div>
+    </div>
+
+    <template id="suggestion-template">
+        <div class="suggestion-block">
+            <button class="remove-btn" title="Remove this suggestion">X</button>
+            <label>Suggestion Title</label>
+            <input type="text" class="suggestion-title" placeholder="e.g., Quality of Life Improvements">
+            
+            <label>Description</label>
+            <div class="format-toolbar">
+                <button class="format-btn" data-tag="**"><b>B</b></button>
+                <button class="format-btn" data-tag="*"><i>I</i></button>
+                <button class="format-btn" data-tag="__"><u>U</u></button>
+            </div>
+            <input type="text" class="suggestion-description" placeholder="e.g., Small changes for a smoother experience...">
+            
+            <label>List Items (one per line)</label>
+            <textarea class="suggestion-list" placeholder="• 'Loot All' button for drops
+• Customizable UI scale"></textarea>
+            
+            <label>Emphasized Closing Line</label>
+            <div class="format-toolbar">
+                <button class="format-btn" data-tag="**"><b>B</b></button>
+                <button class="format-btn" data-tag="*"><i>I</i></button>
+                <button class="format-btn" data-tag="__"><u>U</u></button>
+            </div>
+            <input type="text" class="suggestion-emphasis" placeholder="e.g., Would speed up daily actions.">
+        </div>
+    </template>
+
+    <script src="script.js"></script>
+</body>
+</html>
